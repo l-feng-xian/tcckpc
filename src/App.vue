@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <div class="app-box">
-      <div class="app-box-title positionbg">图圈查控驾驶舱</div>
+      <div class="app-box-title positionbg">
+        <div class="title">图圈查控驾驶舱</div>
+        <div class="dateTime">2022年5月19日 星期一</div>
+        <div class="time">15:12:13</div>
+      </div>
 
       <div class="app-box-left positionbg"></div>
 
@@ -26,14 +30,14 @@
         <div class="app-content-c"></div>
         <div class="app-content-r">
           <div class="app-content-r-box">
-            <div class="app-content-r-top">
-              <base-title title="111"></base-title>
+            <div class="app-content-r-top" style="width: 100%;height: 32%;background-color: ;">
+              <rightTopVue></rightTopVue>
             </div>
-            <div class="app-content-r-center">
-              <base-title title="111"></base-title>
+            <div class="app-content-r-center" style="width: 100%;height: 30%;background-color: ;">
+              <rightCenterVue></rightCenterVue>
             </div>
-            <div class="app-content-r-down">
-              <base-title title="111"></base-title>
+            <div class="app-content-r-down" style="width: 100%;height: 38%;background-color: ;">
+              <rightDownVue></rightDownVue>
             </div>
           </div>
         </div>
@@ -43,14 +47,17 @@
 </template>
 
 <script>
-import baseTitle from "./components/baseTitle.vue"
+// import baseTitle from "./components/baseTitle.vue"
 
 import leftTopVue from "./components/leftTop.vue"
 import leftCenterVue from "./components/leftCenter.vue"
 import leftDownVue from "./components/leftDown.vue"
+import rightTopVue from "./components/rightTop.vue"
+import rightCenterVue from "./components/rightCenter.vue"
+import rightDownVue from "./components/rightDown.vue"
 export default {
   name: 'App',
-  components: { baseTitle, leftTopVue, leftCenterVue, leftDownVue }
+  components: { leftTopVue, leftCenterVue, leftDownVue, rightTopVue, rightCenterVue, rightDownVue }
 }
 </script>
 
@@ -78,6 +85,35 @@ export default {
   background-image: url(./assets/images/titleTop.png);
   background-position: center -2px;
   z-index: 999;
+  position: absolute;
+}
+
+.app-box-title .title {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 21px;
+  color: #fff;
+  letter-spacing: 2px;
+  text-shadow: 0px 2px 1px #5B8BDD;
+  font-weight: bold;
+}
+.app-box-title  .dateTime {
+  position: absolute;
+  top: 32px;
+  left: 15%;
+  color: #7CBCFF;
+  font-size: 12px;
+  transform: rotate(2deg);
+}
+.app-box-title  .time {
+  position: absolute;
+  top: 32px;
+  right: 18%;
+  color: #7CBCFF;
+  font-size: 12px;
+  transform: rotate(-2deg);
 }
 
 .app-box-left {
@@ -149,7 +185,6 @@ export default {
   right: 96px;
   bottom: 97px;
   left: 36%;
-  background-color: pink;
 }
 
 .app-content-c {

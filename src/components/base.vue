@@ -1,7 +1,6 @@
 <template>
     <div style="height: 100%;">
         <baseTitleVue title="勤务资源"></baseTitleVue>
-        
     </div>
 </template>
 

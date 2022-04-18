@@ -23,13 +23,17 @@
         </div>
         <div class="statistics">
             <div class="statistics-l">
-                <div class="statistics-l-top">
-                    <div class="statistics-l-text">警力总数</div>
-                    <div class="statistics-l-number">1920</div>
+                <div class="statistics-l-box">
+                    <div class="statistics-l-top">
+                        <div class="statistics-l-text">警力总数</div>
+                        <div class="statistics-l-number">1920</div>
+                    </div>
                 </div>
-                <div class="statistics-l-down">
-                    <div class="statistics-l-text">在岗警力数</div>
-                    <div class="statistics-l-number">1920</div>
+                <div class="statistics-l-box">
+                    <div class="statistics-l-down">
+                        <div class="statistics-l-text">在岗警力数</div>
+                        <div class="statistics-l-number">1920</div>
+                    </div>
                 </div>
             </div>
             <div class="statistics-r">
@@ -60,9 +64,9 @@ export default {
                     trigger: 'item'
                 },
                 legend: {
-                    top: '5%',
+                    top: '4%',
                     left: 'center',
-                    icon:'stack',
+                    icon: 'stack',
                     itemWidth: 4,
                     textStyle: {
                         color: '#CBEAFF'
@@ -72,7 +76,7 @@ export default {
                     {
                         name: '勤务资源',
                         type: 'pie',
-                        radius: ['40%', '80%'],
+                        radius: ['40%', '70%'],
                         avoidLabelOverlap: false,
                         itemStyle: {
                             borderRadius: 5,
@@ -179,11 +183,17 @@ export default {
 .statistics-l {
     width: 165px;
 }
-
-.statistics-l-top,
-.statistics-l-down {
+.statistics-l-box {
     width: 100%;
     height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.statistics-l-top,
+.statistics-l-down {
+    width: 165px;
+    height: 79px;
     background-image: url(../assets/images/jinglzs.png);
     background-size: 100% 100%;
     background-position: center;

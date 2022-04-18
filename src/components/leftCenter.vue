@@ -65,10 +65,11 @@ export default {
     height: 22px;
     display: flex;
     justify-content: flex-end;
+    transform: translateY(-10px);
 }
 
 .select-box-item {
-    width: 44px;
+    padding: 0 10px;
     height: 22px;
     background: linear-gradient(90deg, rgba(56, 135, 242, 0.15) 0%, rgba(65, 150, 255, 0) 100%);
     border: 1px solid;
@@ -76,7 +77,7 @@ export default {
     font-size: 12px;
     color: rgb(160, 160, 160);
     line-height: 22px;
-    margin-right: 15px;
+    margin-right: 10px;
     cursor: pointer;
     text-align: center
 }
