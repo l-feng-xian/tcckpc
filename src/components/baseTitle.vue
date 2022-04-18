@@ -20,7 +20,7 @@ export default {
   background-image: url(../assets/images/titlebg.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-x: -30px;
+  background-position-x: -26px;
 }
 
 .base-title-text {

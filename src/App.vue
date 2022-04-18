@@ -18,7 +18,7 @@
             <div class="app-content-l-center" style="width: 100%;height: 36%;background-color: ;">
               <leftCenterVue></leftCenterVue>
             </div>
-            <div class="app-content-l-down" style="width: 100%;height: 32%;background-color: skyblue;">
+            <div class="app-content-l-down" style="width: 100%;height: 32%;background-color: ;">
               <leftDownVue></leftDownVue>
             </div>
           </div>
