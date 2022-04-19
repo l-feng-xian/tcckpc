@@ -11,7 +11,9 @@
 
       <div class="app-box-right positionbg"></div>
 
-      <div class="app-box-down positionbg"></div>
+      <div class="app-box-down positionbg">
+        <ul><li v-for="item in 6" :key="item"></li></ul>
+      </div>
 
       <div class="app-contnet">
         <div class="app-content-l">
@@ -55,9 +57,26 @@ import leftDownVue from "./components/leftDown.vue"
 import rightTopVue from "./components/rightTop.vue"
 import rightCenterVue from "./components/rightCenter.vue"
 import rightDownVue from "./components/rightDown.vue"
+// import picVue from "./components/pic.vue"
 export default {
   name: 'App',
-  components: { leftTopVue, leftCenterVue, leftDownVue, rightTopVue, rightCenterVue, rightDownVue }
+  components: { leftTopVue, leftCenterVue, leftDownVue, rightTopVue, rightCenterVue, rightDownVue },
+  data() {
+    return {
+      dateTimeNo: ''
+    }
+  },
+  mounted() {
+    this.getDateTimeNo()
+    setInterval(() => {
+      this.getDateTimeNo()
+    }, 1000);
+  },
+  methods: {
+    getDateTimeNo() {
+
+    }
+  },
 }
 </script>
 
@@ -143,6 +162,15 @@ export default {
   background-position: center 2px;
   background-size: 120% 100%;
   z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app-box-down ul li {
+   width: 32px;
+   height: 32px;
+   background-image: url(./assets/images/jcz.png);
+   float: left;
 }
 
 .app-contnet {
