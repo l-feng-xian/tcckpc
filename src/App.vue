@@ -2,9 +2,14 @@
   <div id="app">
     <div class="app-box">
       <div class="app-box-title positionbg">
-        <div class="title">图圈查控驾驶舱</div>
-        <div class="dateTime">2022年5月19日 星期一</div>
-        <div class="time">15:12:13</div>
+        <div class="title">圈层查控驾驶舱</div>
+        <div class="dateTime">{{ dateTimes }}</div>
+        <div class="time">{{timeNow}}</div>
+        <div class="selectbox">
+          <select @change="optionListChange">
+            <option v-for="(item, i) in optionList" :key="i" :value="item">{{ item }}</option>
+          </select>
+        </div>
       </div>
 
       <div class="app-box-left positionbg"></div>
@@ -12,7 +17,7 @@
       <div class="app-box-right positionbg"></div>
 
       <div class="app-box-down positionbg">
-        <ul><li v-for="item in 6" :key="item"></li></ul>
+        <!-- <ul><li v-for="item in 6" :key="item"></li></ul> -->
       </div>
 
       <div class="app-contnet">
@@ -63,18 +68,64 @@ export default {
   components: { leftTopVue, leftCenterVue, leftDownVue, rightTopVue, rightCenterVue, rightDownVue },
   data() {
     return {
-      dateTimeNo: ''
+      dateTimes: '',
+      dateTimeNo: '',
+      timeNow: '',
+      optionList: ['全市', '环杭', '环赛区', '环场馆',],
     }
   },
   mounted() {
+    this.getDate()
     this.getDateTimeNo()
     setInterval(() => {
       this.getDateTimeNo()
     }, 1000);
   },
   methods: {
+    getDate() {
+      let time = new Date()
+      let y = time.getFullYear()
+      let m = (time.getMonth() + 1) > 10 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)
+      let d = time.getDate() > 10 ? time.getDate() : '0' + time.getDate()
+      let w = time.getDay()
+      let xq = ''
+      switch (w) {
+        case 0:
+          xq = '星期天'
+          break;
+        case 1:
+          xq = '星期一'
+          break;
+        case 2:
+          xq = '星期二'
+          break;
+        case 3:
+          xq = '星期三'
+          break;
+        case 4:
+          xq = '星期四'
+          break;
+        case 5:
+          xq = '星期五'
+          break;
+        case 6:
+          xq = '星期六'
+          break;
+        default:
+          break;
+      }
+      this.dateTimes = y + '年' + m + '月' + d + '日' + '  ' + xq
+      console.log(y, m, d, w, xq);
+    },
     getDateTimeNo() {
-
+      let time = new Date()
+      let h = time.getHours() > 10 ? time.getHours() : '0' + time.getHours()
+      let mm = time.getMinutes() > 10 ? time.getMinutes() : '0' + time.getMinutes()
+      let ss = time.getSeconds() > 10 ? time.getSeconds() : '0' + time.getSeconds()
+      this.timeNow = h + ':' + mm + ':' + ss
+    },
+    optionListChange(item) {
+      console.log(item, 'optionListChange');
     }
   },
 }
@@ -118,7 +169,8 @@ export default {
   text-shadow: 0px 2px 1px #5B8BDD;
   font-weight: bold;
 }
-.app-box-title  .dateTime {
+
+.app-box-title .dateTime {
   position: absolute;
   top: 32px;
   left: 15%;
@@ -126,13 +178,34 @@ export default {
   font-size: 12px;
   transform: rotate(2deg);
 }
-.app-box-title  .time {
+
+.app-box-title .time {
   position: absolute;
   top: 32px;
   right: 18%;
   color: #7CBCFF;
   font-size: 12px;
   transform: rotate(-2deg);
+}
+
+.app-box-title .selectbox {
+  position: absolute;
+  bottom: 17px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.app-box-title .selectbox select {
+  color: #7CBCFF;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.app-box-title .selectbox option {
+  outline: none;
+  background-color: #1157A1;
+  border: 1px solid #1157A1;
 }
 
 .app-box-left {
@@ -166,11 +239,12 @@ export default {
   align-items: center;
   justify-content: center;
 }
+
 .app-box-down ul li {
-   width: 32px;
-   height: 32px;
-   background-image: url(./assets/images/jcz.png);
-   float: left;
+  width: 32px;
+  height: 32px;
+  background-image: url(./assets/images/jcz.png);
+  float: left;
 }
 
 .app-contnet {

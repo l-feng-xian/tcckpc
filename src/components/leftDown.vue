@@ -76,7 +76,6 @@ export default {
                 zHeight: 5      // 阴影折角高
             },
             buildPath: function (ctx, shape) {
-                console.log(ctx, shape);
                 const api = shape.api;
                 const xAxisPoint = api.coord([shape.xValue, 0]);
                 const p0 = [shape.x, shape.y];
@@ -258,6 +257,7 @@ export default {
     font-size: 12px;
     color: #CBEAFF;
     line-height: 20px;
+    width: 60px;
 }
 
 .resource-total-item .resource-total-number {

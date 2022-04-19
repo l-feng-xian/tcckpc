@@ -32,7 +32,7 @@
                             <div class="bg bg-bl"></div>
                             <div class="bg bg-br"></div>
                             <div class="bg-line">
-                                <div class="bg-line-stpe"><span><i></i>1024</span></div>
+                                <div class="bg-line-stpe"><div class="bg-line-stpe-li"><i v-for="item in 100" :key="item"></i></div><span><i></i>1024</span></div>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                             <div class="bg bg-bl"></div>
                             <div class="bg bg-br"></div>
                             <div class="bg-line">
-                                <div class="bg-line-stpe"><span><i></i>1024</span></div>
+                                <div class="bg-line-stpe"><div class="bg-line-stpe-li"><i v-for="item in 100" :key="item"></i></div><span><i></i>1024</span></div>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                             <div class="bg bg-bl"></div>
                             <div class="bg bg-br"></div>
                             <div class="bg-line">
-                                <div class="bg-line-stpe"><span><i></i>1024</span></div>
+                                <div class="bg-line-stpe"><div class="bg-line-stpe-li"><i v-for="item in 100" :key="item"></i></div><span><i></i>1024</span></div>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                             <div class="bg bg-bl"></div>
                             <div class="bg bg-br"></div>
                             <div class="bg-line">
-                                <div class="bg-line-stpe"><span><i></i>1024</span></div>
+                                <div class="bg-line-stpe" :style="{width: bgLineStpe[0]}"><div class="bg-line-stpe-li"><i v-for="item in 100" :key="item"></i></div><span><i></i>1024</span></div>
                             </div>
                         </div>
                     </div>
@@ -95,7 +95,8 @@ export default {
         return {
             selectType: ['今日', '历史'],
             activeType: 0,
-            isUp: false
+            isUp: false,
+            bgLineStpe: ['90%', '60%', '80%', '100%']
         }
     },
     mounted() {
@@ -265,6 +266,18 @@ export default {
 .select-table-r-item3 .bg-line-stpe {
     background: linear-gradient(270deg, #82E8A8 0%, #00CA61 100%);
 }
+.bg-line-stpe .bg-line-stpe-li {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.bg-line-stpe .bg-line-stpe-li i {
+    float: left;
+    width: 2px;
+    height: 100%;
+    background-color: #0E204C;
+    margin-left: 1px;
+}
 .bg-line-stpe span {
     position: absolute;
     top: -25px;
@@ -273,7 +286,7 @@ export default {
 .bg-line-stpe span i {
     position: absolute;
     font-style: normal;
-    border: 6px solid transparent;
+    border: 4px solid transparent;
     border-top-color: #FDCD46;
     top: 50%;
     left: 0;
