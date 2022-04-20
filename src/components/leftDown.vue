@@ -16,8 +16,8 @@
                     <div class="resource-total-number">{{ 1024 }}</div>
                 </div>
             </div>
-            <div class="resource-total-item resource-item-iconwrj">
-                <div class="resource-item-icon"></div>
+            <div class="resource-total-item">
+                <div class="resource-item-icon resource-item-iconwrj"></div>
                 <div class="resource-item-message">
                     <div class="resource-total-text">无人机数</div>
                     <div class="resource-total-number">{{ 1024 }}</div>

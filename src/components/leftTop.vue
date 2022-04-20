@@ -224,7 +224,7 @@ export default {
                             fontSize: 16,
                         },
                     },
-                    formatter: params =>{
+                    formatter: params => {
                         return `${params.percent}%`;
                     }
 
@@ -255,13 +255,29 @@ export default {
                 grid3D: {
                     show: false,
                     boxHeight: boxHeight, //圆环的高度
+                    left: 0,
                     viewControl: { //3d效果可以放大、旋转等，请自己去查看官方配置
-                        alpha: 30, //角度
-                        distance: 200,//调整视角到主体的距离，类似调整zoom
+                        alpha: 28, //角度
+                        // distance: 200,//调整视角到主体的距离，类似调整zoom
                         rotateSensitivity: 0, //设置为0无法旋转
-                        zoomSensitivity: 0, //设置为0无法缩放
-                        panSensitivity: 0, //设置为0无法平移
+                        // zoomSensitivity: 0, //设置为0无法缩放
+                        // panSensitivity: 0, //设置为0无法平移
                         autoRotate: false //自动旋转
+                    },
+                    light: {
+                        main: {
+                            color: '#fff',
+                            intensity: 1,
+                            shadow: false,
+                            shadowQuality: 'medium',
+                            alpha: 30,
+                            beta: 40,
+                        },
+
+                        ambient: {
+                            color: '#fff',
+                            intensity: 0.6,
+                        }
                     }
                 },
                 series: series
@@ -578,7 +594,7 @@ export default {
     flex: 1;
     background-image: url(../assets/images/bingtdz.png);
     background-repeat: no-repeat;
-    background-position: center 90%;
+    background-position: center 118%;
 }
 
 .statistics-pic {

@@ -4,7 +4,9 @@
         <div class="select-box">
             <div @click="selectTypeClick(index)" class="select-box-item"
                 :class="activeType === index ? 'select-box-item-a' : ''" v-for="(item, index) in selectType"
-                :key="index">{{ item }}</div>
+                :key="index">{{ item }}
+                <img src="../assets/images/tbsbg1.png" alt="">
+            </div>
         </div>
         <div class="select-table">
             <div class="select-table-r">
@@ -40,22 +42,22 @@ export default {
             activeType: 0,
             isUp: false,
             topList: [
-                { name: '三江检查站', time: '3.4', id: 1},
-                { name: '三江检查站', time: '2.4', id: 2},
-                { name: '三江检查站', time: '1.4', id: 3},
-                { name: '三江检查站', time: '1.4', id: 4},
-                { name: '三江检查站', time: '1.4', id: 5},
-                { name: '三江检查站', time: '1.4', id: 6},
-                { name: '三江检查站', time: '1.4', id: 7},
-                { name: '三江检查站', time: '1.4', id: 8},
-                { name: '三江检查站', time: '1.4', id: 1},
-                { name: '三江检查站', time: '2.4', id: 2},
-                { name: '三江检查站', time: '1.4', id: 3},
-                { name: '三江检查站', time: '1.4', id: 4},
-                { name: '三江检查站', time: '1.4', id: 5},
-                { name: '三江检查站', time: '1.4', id: 6},
-                { name: '三江检查站', time: '1.4', id: 7},
-                { name: '三江检查站', time: '1.4', id: 8},
+                { name: '三江检查站', time: '3.4', id: 1 },
+                { name: '三江检查站', time: '2.4', id: 2 },
+                { name: '三江检查站', time: '1.4', id: 3 },
+                { name: '三江检查站', time: '1.4', id: 4 },
+                { name: '三江检查站', time: '1.4', id: 5 },
+                { name: '三江检查站', time: '1.4', id: 6 },
+                { name: '三江检查站', time: '1.4', id: 7 },
+                { name: '三江检查站', time: '1.4', id: 8 },
+                { name: '三江检查站', time: '1.4', id: 1 },
+                { name: '三江检查站', time: '2.4', id: 2 },
+                { name: '三江检查站', time: '1.4', id: 3 },
+                { name: '三江检查站', time: '1.4', id: 4 },
+                { name: '三江检查站', time: '1.4', id: 5 },
+                { name: '三江检查站', time: '1.4', id: 6 },
+                { name: '三江检查站', time: '1.4', id: 7 },
+                { name: '三江检查站', time: '1.4', id: 8 },
             ]
         }
     },
@@ -81,22 +83,30 @@ export default {
 .select-box-item {
     padding: 0 10px;
     height: 22px;
-    background: linear-gradient(90deg, rgba(56, 135, 242, 0.15) 0%, rgba(65, 150, 255, 0) 100%);
+    /* background: linear-gradient(90deg, rgba(56, 135, 242, 0.15) 0%, rgba(65, 150, 255, 0) 100%);
     border: 1px solid;
-    border-image: linear-gradient(84deg, rgba(126, 190, 255, 0.6), rgba(126, 189, 255, 0)) 1 1;
+    border-image: linear-gradient(84deg, rgba(126, 190, 255, 0.6), rgba(126, 189, 255, 0)) 1 1; */
     font-size: 12px;
     color: rgb(160, 160, 160);
-    line-height: 22px;
+    line-height: 28px;
     margin-right: 10px;
     cursor: pointer;
-    text-align: center
+    text-align: center;
+    position: relative;
 }
-
+.select-box-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+}
 .select-box-item-a {
     color: #fff !important;
     font-weight: bold;
 }
-
+.select-box-item-a img {
+   opacity: 1;
+}
 .select-table {
     height: calc(100% - 72px);
     display: flex;

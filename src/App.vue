@@ -4,7 +4,7 @@
       <div class="app-box-title positionbg">
         <div class="title">圈层查控驾驶舱</div>
         <div class="dateTime">{{ dateTimes }}</div>
-        <div class="time">{{timeNow}}</div>
+        <div class="time">{{ timeNow }}</div>
         <div class="selectbox">
           <select @change="optionListChange">
             <option v-for="(item, i) in optionList" :key="i" :value="item">{{ item }}</option>
@@ -17,7 +17,32 @@
       <div class="app-box-right positionbg"></div>
 
       <div class="app-box-down positionbg">
-        <!-- <ul><li v-for="item in 6" :key="item"></li></ul> -->
+        <ul>
+          <li>
+            <img @click="isSelectBaChange(1)" v-if="isSelectBa == 1" class="bar-img" src="./assets/images/bar1b.png" alt="" />
+            <img @click="isSelectBaChange(1)" v-else class="bar-img" src="./assets/images/bar1.png" alt="" />
+          </li>
+          <li>
+            <img @click="isSelectBaChange(2)" v-if="isSelectBa == 2" class="bar-img" src="./assets/images/bar2b.png" alt="" />
+            <img @click="isSelectBaChange(2)" v-else class="bar-img" src="./assets/images/bar2.png" alt="" />
+          </li>
+          <li>
+            <img @click="isSelectBaChange(3)" v-if="isSelectBa == 3" class="bar-img" src="./assets/images/bar3b.png" alt="" />
+            <img @click="isSelectBaChange(3)" v-else class="bar-img" src="./assets/images/bar3.png" alt="" />
+          </li>
+          <li>
+            <img @click="isSelectBaChange(4)" v-if="isSelectBa == 4" class="bar-img" src="./assets/images/bar4b.png" alt="" />
+            <img @click="isSelectBaChange(4)" v-else class="bar-img" src="./assets/images/bar4.png" alt="" />
+          </li>
+          <li>
+            <img @click="isSelectBaChange(5)" v-if="isSelectBa == 5" class="bar-img" src="./assets/images/bar5b.png" alt="" />
+            <img @click="isSelectBaChange(5)" v-else class="bar-img" src="./assets/images/bar5.png" alt="" />
+          </li>
+          <li>
+            <img @click="isSelectBaChange(6)" v-if="isSelectBa == 6" class="bar-img" src="./assets/images/bar6b.png" alt="" />
+            <img @click="isSelectBaChange(6)" v-else class="bar-img" src="./assets/images/bar6.png" alt="" />
+          </li>
+        </ul>
       </div>
 
       <div class="app-contnet">
@@ -72,6 +97,7 @@ export default {
       dateTimeNo: '',
       timeNow: '',
       optionList: ['全市', '环杭', '环赛区', '环场馆',],
+      isSelectBa: 999
     }
   },
   mounted() {
@@ -124,8 +150,12 @@ export default {
       let ss = time.getSeconds() > 10 ? time.getSeconds() : '0' + time.getSeconds()
       this.timeNow = h + ':' + mm + ':' + ss
     },
-    optionListChange(item) {
-      console.log(item, 'optionListChange');
+    optionListChange(e) {
+      let index = e.target.options.selectedIndex
+      console.log(index, 'optionListChange');
+    },
+    isSelectBaChange(i) {
+      this.isSelectBa = i
     }
   },
 }
@@ -240,11 +270,25 @@ export default {
   justify-content: center;
 }
 
+.app-box-down ul {
+  margin-top: -125px;
+  margin-left: 48px;
+}
+
 .app-box-down ul li {
-  width: 32px;
-  height: 32px;
-  background-image: url(./assets/images/jcz.png);
+  width: 124px;
+  height: 88px;
   float: left;
+  margin-left: -30px;
+  position: relative;
+}
+
+.app-box-down ul .bar-img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  /* background-image: url(./assets/images/bar1.png); */
+  fill: opacity(0%);
 }
 
 .app-contnet {
