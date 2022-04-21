@@ -74,9 +74,6 @@ export default {
 .select-box-item {
     padding: 0 10px;
     height: 22px;
-    /* background: linear-gradient(90deg, rgba(56, 135, 242, 0.15) 0%, rgba(65, 150, 255, 0) 100%); */
-    /* border: 1px solid; */
-    /* border-image: linear-gradient(84deg, rgba(126, 190, 255, 0.6), rgba(126, 189, 255, 0)) 1 1; */
     background-size: cover;
     font-size: 12px;
     color: rgb(160, 160, 160);
@@ -91,6 +88,8 @@ export default {
     top: 0;
     left: 0;
     opacity: 0.5;
+    width: 54px;
+    height: 33px;
 }
 .select-box-item-a {
     color: #fff !important;
@@ -98,6 +97,8 @@ export default {
 }
 .select-box-item-a img {
    opacity: 1;
+   width: 54px;
+   height: 33px;
 }
 .select-number {
     width: 100%;

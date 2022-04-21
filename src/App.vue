@@ -111,8 +111,8 @@ export default {
     getDate() {
       let time = new Date()
       let y = time.getFullYear()
-      let m = (time.getMonth() + 1) > 10 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)
-      let d = time.getDate() > 10 ? time.getDate() : '0' + time.getDate()
+      let m = time.getMonth() + 1
+      let d = time.getDate()
       let w = time.getDay()
       let xq = ''
       switch (w) {
@@ -145,9 +145,9 @@ export default {
     },
     getDateTimeNo() {
       let time = new Date()
-      let h = time.getHours() > 10 ? time.getHours() : '0' + time.getHours()
-      let mm = time.getMinutes() > 10 ? time.getMinutes() : '0' + time.getMinutes()
-      let ss = time.getSeconds() > 10 ? time.getSeconds() : '0' + time.getSeconds()
+      let h = time.getHours() >= 10 ? time.getHours() : '0' + time.getHours()
+      let mm = time.getMinutes() >= 10 ? time.getMinutes() : '0' + time.getMinutes()
+      let ss = time.getSeconds() >= 10 ? time.getSeconds() : '0' + time.getSeconds()
       this.timeNow = h + ':' + mm + ':' + ss
     },
     optionListChange(e) {
@@ -203,7 +203,7 @@ export default {
 .app-box-title .dateTime {
   position: absolute;
   top: 32px;
-  left: 15%;
+  left: 14.5%;
   color: #7CBCFF;
   font-size: 12px;
   transform: rotate(2deg);
@@ -321,7 +321,7 @@ export default {
   top: 50px;
   left: 96px;
   bottom: 97px;
-  right: 36%;
+  right: 39%;
   /* background-color: pink; */
 }
 

@@ -24,6 +24,10 @@
                 </div>
             </div>
             <div class="select-table-r">
+                <div class="select-table-r-shadio">
+                    <span class="shadio-bg shadio-bg1"></span>
+                    <span class="shadio-bg shadio-bg2"></span>
+                </div>
                 <div class="select-table-r-item">
                     <div class="select-table-r-item-icon"></div>
                     <div class="select-table-r-item-content">
@@ -135,9 +139,6 @@ export default {
 .select-box-item {
     padding: 0 10px;
     height: 22px;
-    /* background: linear-gradient(90deg, rgba(56, 135, 242, 0.15) 0%, rgba(65, 150, 255, 0) 100%);
-    border: 1px solid;
-    border-image: linear-gradient(84deg, rgba(126, 190, 255, 0.6), rgba(126, 189, 255, 0)) 1 1; */
     font-size: 12px;
     color: rgb(160, 160, 160);
     line-height: 28px;
@@ -152,6 +153,8 @@ export default {
     top: 0;
     left: 0;
     opacity: 0.5;
+    width: 54px;
+    height: 33px;
 }
 
 .select-box-item-a {
@@ -161,6 +164,8 @@ export default {
 
 .select-box-item-a img {
     opacity: 1;
+    width: 54px;
+    height: 33px;
 }
 
 .select-table {
@@ -183,6 +188,7 @@ export default {
     height: 87px;
     background-image: url(../assets/images/hczl.png);
     transform: scale(0.8);
+    background-size: cover;
 }
 
 .select-table-l-item-box1 {
@@ -212,15 +218,38 @@ export default {
 .select-table-r {
     flex: 1;
     background: linear-gradient(90deg, rgba(48, 74, 206, 0.23) 0%, rgba(48, 74, 206, 0.13) 11%, rgba(0, 34, 57, 0) 100%);
+    position: relative;
 }
-
+.select-table-r .select-table-r-shadio {
+    position: absolute;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translate(-4px, -4px);
+    background: linear-gradient(90deg, rgba(48, 74, 206, 0.23) 0%, rgba(48, 74, 206, 0.13) 11%, rgba(0, 34, 57, 0) 100%);
+}
+.select-table-r .select-table-r-shadio .shadio-bg {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border: 2px solid #02F4FF;
+}
+.select-table-r .select-table-r-shadio .shadio-bg1 {
+   top: 0;left: 0;
+   border-right-color: transparent;
+   border-bottom-color: transparent;
+}
+.select-table-r .select-table-r-shadio .shadio-bg2 {
+    left: 0;bottom: 0;
+    border-right-color: transparent;
+    border-top-color: transparent;
+}
 .select-table-r-item {
     width: 100%;
     height: 25%;
     display: flex;
     align-items: center;
 }
-
 .select-table-r-item .select-table-r-item-icon {
     width: 32px;
     height: 27px;
@@ -340,7 +369,7 @@ export default {
 
 .bg-line-stpe span {
     position: absolute;
-    top: -25px;
+    top: -20px;
     right: 0;
 }
 
@@ -355,7 +384,7 @@ export default {
 }
 
 .bg-line-stpe span {
-    font-size: 20px;
+    font-size: 16px;
     color: #D6FFFD;
     vertical-align: middle;
     text-indent: 15px;

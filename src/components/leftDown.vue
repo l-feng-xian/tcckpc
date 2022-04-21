@@ -28,7 +28,11 @@
             <span class="resource-eq-text">警护装备</span>
             <span class="resource-eq-number">1024</span>
         </div>
-        <div class="resource-linemap" id="resourceLinemap"></div>
+        <div class="resource-linemapbox">
+            <div class="resource-linemapbox-bgl"></div>
+            <div class="resource-linemapbox-bgr"></div>
+            <div class="resource-linemap" id="resourceLinemap"></div>
+        </div>
     </div>
 </template>
 
@@ -243,14 +247,17 @@ export default {
     height: 48px;
     background-image: url(../assets/images/kakzs.png);
     margin-right: 5px;
+    background-size: cover;
 }
 
 .resource-total-item .resource-item-iconsp {
     background-image: url(../assets/images/shipzs.png);
+    background-size: cover;
 }
 
 .resource-total-item .resource-item-iconwrj {
     background-image: url(../assets/images/wurenjs.png);
+    background-size: cover;
 }
 
 .resource-total-item .resource-total-text {
@@ -285,9 +292,21 @@ export default {
     color: #fff;
     font-weight: bold;
 }
-
-.resource-linemap {
+.resource-linemapbox {
     width: 100%;
     height: calc(100% - 151px);
+    position: relative;
+}
+.resource-linemapbox-bgl {
+    position: absolute;
+    left: 0;
+    
+}
+.resource-linemapbox-bgr {
+    
+}
+.resource-linemap {
+    width: 100%;
+    height: 100%;
 }
 </style>
