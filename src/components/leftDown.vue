@@ -138,8 +138,8 @@ export default {
             grid: {
                 left: '3%',
                 right: '0%',
-                top: '0%',
-                bottom: '3%',
+                top: '10%',
+                bottom: '0%',
                 containLabel: true
             },
             xAxis: {
@@ -148,16 +148,19 @@ export default {
                 // boundaryGap: true,
                 interval: 0,
                 axisLabel: {
-                    color: '#CBEAFF'
+                    color: '#7CAFC7'
                 },
                 splitLine: {
                     show: false
                 }
             },
             yAxis: {
+                min: 0, // 自己算的最小值
+                max: 100,
+                interval: 35,
                 type: 'value',
                 axisLabel: {
-                    color: '#CBEAFF'
+                    color: '#7CAFC7'
                 },
                 splitLine: {
                     show: false
@@ -226,6 +229,9 @@ export default {
         initEcharts() {
             let myChart = echarts.init(document.getElementById('resourceLinemap'))
             myChart.setOption(this.option)
+            window.addEventListener("resize", function () {
+               myChart.resize();
+            });
         }
     }
 }
@@ -262,7 +268,7 @@ export default {
 
 .resource-total-item .resource-total-text {
     font-size: 12px;
-    color: #CBEAFF;
+    color: #7CAFC7;
     line-height: 20px;
     width: 60px;
 }
@@ -278,7 +284,8 @@ export default {
     height: 43px;
     background-image: url(../assets/images/jinghuzb.png);
     background-size: cover;
-    margin: 5px 0;
+    margin: 5px 0px 0px 0px;
+    transform: translateX(-10px);
 }
 
 .resource-eq .resource-eq-text {
@@ -299,12 +306,16 @@ export default {
 }
 .resource-linemapbox-bgl {
     position: absolute;
-    left: 0;
-    
+    top: 0;left: 0;right: 0;bottom: 14px;
+    background-image: url(../assets/images/jinghzbbj.png);
+    background-size: 100% 100%;
 }
-.resource-linemapbox-bgr {
-    
-}
+/* .resource-linemapbox-bgr {
+    position: absolute;
+    right: 0;top: 0;bottom: 30px;
+    width: 10px;
+    background-color: #fff;
+} */
 .resource-linemap {
     width: 100%;
     height: 100%;

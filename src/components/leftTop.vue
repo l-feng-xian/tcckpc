@@ -21,23 +21,35 @@
                 </div>
             </div>
         </div>
-        <div class="statistics">
-            <div class="statistics-l">
-                <div class="statistics-l-box">
-                    <div class="statistics-l-top">
-                        <div class="statistics-l-text">警力总数</div>
-                        <div class="statistics-l-number">1920</div>
+        <div class="statistics-box">
+            <div class="statistics">
+                <div class="statistics-style-box">
+                    <span class="shadio-bg shadio-bg1"></span>
+                    <span class="shadio-bg shadio-bg2"></span>
+                </div>
+                <div class="statistics-l">
+                    <div class="statistics-l-box">
+                        <div class="statistics-l-top statistics-l-top-box">
+                            <div class="statistics-l-text">警力总数</div>
+                            <div class="statistics-l-number">1920</div>
+                        </div>
+                    </div>
+                    <div class="statistics-l-box">
+                        <div class="statistics-l-down">
+                            <div class="statistics-l-text">在岗警力数</div>
+                            <div class="statistics-l-number">1920</div>
+                        </div>
                     </div>
                 </div>
-                <div class="statistics-l-box">
-                    <div class="statistics-l-down">
-                        <div class="statistics-l-text">在岗警力数</div>
-                        <div class="statistics-l-number">1920</div>
+                <div class="statistics-r">
+                    <img class="statistics-r-bg" src="../assets/images/bingtdz.png" alt=""/>
+                    <div class="pic-legend">
+                        <div class="pic-legend-item" v-for="(item, index) in optionData" :key="index"><span class="pic-legend-item-box">
+                            <span :style="{backgroundColor: item.itemStyle.color}"></span>{{item.name}}</span>
+                        </div>
                     </div>
+                    <div class="statistics-pic" id="statisticsPic"></div>
                 </div>
-            </div>
-            <div class="statistics-r">
-                <div class="statistics-pic" id="statisticsPic"></div>
             </div>
         </div>
     </div>
@@ -100,7 +112,7 @@ export default {
                 name: 'pie2d',
                 type: 'pie',
                 labelLine: {
-                    length: 10,
+                    length: 5,
                     length2: 5
                 },
                 label: {
@@ -109,7 +121,7 @@ export default {
                     textBorderWidth: 0,
                     color: '#CBEAFF'
                 },
-                startAngle: -20, //起始角度，支持范围[0, 360]。
+                startAngle: -60, //起始角度，支持范围[0, 360]。
                 clockwise: false,//饼图的扇区是否是顺时针排布。上述这两项配置主要是为了对齐3d的样式
                 radius: ['20%', '50%'],
                 center: ['50%', '50%'],
@@ -120,6 +132,9 @@ export default {
             });
             myChart.setOption(this.option);
             this.bindListen(myChart);
+            window.addEventListener("resize", function () {
+                myChart.resize();
+            });
         },
 
         getPie3D(pieData, internalDiameterRatio) {
@@ -196,7 +211,7 @@ export default {
                     textStyle: {
                         color: '#A1E2FF',
                     },
-                    show: true,
+                    show: false,
                     icon: 'stack',
                     itemWidth: 4,
                     formatter: function (param) {
@@ -258,7 +273,7 @@ export default {
                     left: 0,
                     viewControl: { //3d效果可以放大、旋转等，请自己去查看官方配置
                         alpha: 28, //角度
-                        // distance: 200,//调整视角到主体的距离，类似调整zoom
+                        distance: 170,//调整视角到主体的距离，类似调整zoom
                         rotateSensitivity: 0, //设置为0无法旋转
                         // zoomSensitivity: 0, //设置为0无法缩放
                         // panSensitivity: 0, //设置为0无法平移
@@ -545,15 +560,47 @@ export default {
     margin-left: 2px;
 }
 
-.statistics {
-    width: 100%;
+.statistics-box {
     height: calc(100% - 112px);
-    background-image: linear-gradient(to right, #284a7e, transparent);
-    display: flex;
+    padding-top: 10px;
+    box-sizing: border-box;
 }
 
+.statistics {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #284a7e, transparent);
+    display: flex;
+    position: relative;
+}
+.statistics-style-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(-4px, -4px);
+    background-image: linear-gradient(to right, #284a7eab, transparent);
+    z-index: 1;
+}
+.statistics-style-box .shadio-bg {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border: 2px solid #02F4FF;
+}
+.statistics-style-box .shadio-bg1 {
+   top: 0;left: 0;
+   border-right-color: transparent;
+   border-bottom-color: transparent;
+}
+.statistics-style-box .shadio-bg2 {
+    left: 0;bottom: 0;
+    border-right-color: transparent;
+    border-top-color: transparent;
+}
 .statistics-l {
     width: 165px;
+    position: relative;
+    z-index: 2;
 }
 
 .statistics-l-box {
@@ -571,6 +618,10 @@ export default {
     background-image: url(../assets/images/jinglzs.png);
     background-size: 100% 100%;
     background-position: center;
+}
+
+.statistics-l-top-box {
+    transform: translateY(12px);
 }
 
 .statistics-l-down {
@@ -592,11 +643,45 @@ export default {
 
 .statistics-r {
     flex: 1;
-    background-image: url(../assets/images/bingtdz.png);
+    /* background-image: url(../assets/images/bingtdz.png);
     background-repeat: no-repeat;
-    background-position: center 118%;
+    background-position: center 118%; */
+    position: relative;
+    z-index: 2;
 }
-
+.statistics-r .statistics-r-bg {
+    position: absolute;
+    width: 100%;
+    height: 114px;
+    top: 37%;
+}
+.pic-legend {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    height: 18px;
+    display: flex;
+}
+.pic-legend .pic-legend-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pic-legend .pic-legend-item .pic-legend-item-box {
+    color: #CBEAFF;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #daffe83f;
+    padding: 4px 6px 4px 4px;
+    box-sizing: border-box;
+}
+.pic-legend-item .pic-legend-item-box span {
+    width: 3px;
+    height: 12px;
+    margin-right: 5px;
+}
 .statistics-pic {
     width: 100%;
     height: 100%;

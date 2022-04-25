@@ -132,7 +132,6 @@ export default {
     content: " ";
     position: absolute;
     top: 0;right: 0;bottom: 0;left: 0;
-    /* background-color: pink; */
     background-image: linear-gradient(180deg, #06082a00 80%, #08022e);
 }
 .select-table-r-scroll {

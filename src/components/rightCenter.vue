@@ -13,13 +13,13 @@
                 <div class="select-table-l-item">
                     <div class="select-table-l-item-box">
                         <p class="box-title">核查总量</p>
-                        <p class="box-number">1024<span :style="{ color: isUp ? '#FF2525' : '#3EFF25' }">+15%</span></p>
+                        <p class="box-number">1024<span :style="{ color: !isUp ? '#FF2525' : '#3EFF25' }">+15% <img v-if="!isUp" src="../assets/images/up.png" alt=""/> <img v-else src="../assets/images/down1.png" alt=""/></span></p>
                     </div>
                 </div>
                 <div class="select-table-l-item">
                     <div class="select-table-l-item-box select-table-l-item-box1">
                         <p class="box-title">核查异常数</p>
-                        <p class="box-number">124<span :style="{ color: isUp ? '#FF2525' : '#3EFF25' }">-15%</span></p>
+                        <p class="box-number">124<span :style="{ color: isUp ? '#FF2525' : '#3EFF25' }">-15% <img v-if="isUp" src="../assets/images/up.png" alt=""/> <img v-else src="../assets/images/down1.png" alt=""/></span></p>
                     </div>
                 </div>
             </div>
@@ -209,7 +209,11 @@ export default {
     color: #fff;
     position: relative;
 }
-
+.select-table-l-item-box .box-number img {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+}
 .select-table-l-item-box .box-number span {
     font-size: 12px;
     position: absolute;
@@ -255,6 +259,7 @@ export default {
     height: 27px;
     background-image: url(../assets/images/ren.png);
     margin: 0px 5px 0px 10px;
+    background-size: cover;
 }
 
 .select-table-r-item1 .select-table-r-item-icon {

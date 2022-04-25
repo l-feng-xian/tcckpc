@@ -20,13 +20,13 @@ export default {
   background-image: url(../assets/images/titlebg.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-x: -16px;
+  background-position-x: -14px;
 }
 
 .base-title-text {
   /* width: 100px; */
   color: #fff;
-  text-indent: 34px;
+  text-indent: 38px;
   line-height: 50px;
 }
 </style>
